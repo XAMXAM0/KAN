@@ -134,15 +134,16 @@ a {
 .typing-container {
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
   font-family: 'Pixelify Sans', sans-serif;
-  font-size: 40px;
+  font-size: 6vw; /* responsive font size */
   color: #00acab;
   white-space: nowrap;
   overflow: hidden;
-  width: 27ch; /* Jumlah karakter */
   border-right: 3px solid #333;
-  animation: typing 4s steps(27), blink 0.6s step-end infinite alternate;
+  width: 0;
+  animation:
+    typing 4s steps(27) forwards,
+    blink 0.6s step-end infinite alternate;
 }
 
 @keyframes typing {
@@ -152,4 +153,11 @@ a {
 
 @keyframes blink {
   50% { border-color: transparent }
+}
+
+/* Media query untuk font size lebih stabil di layar besar */
+@media (min-width: 768px) {
+  .typing-container {
+    font-size: 40px;
+  }
 }
